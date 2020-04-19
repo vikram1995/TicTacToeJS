@@ -13,7 +13,6 @@ togglePlayer = () => {
     if(player == 1)
     {
         player = 2;
-        
     }
 
     else if (player == 2)
@@ -104,14 +103,14 @@ winCalculator = (player) => {
 
 }
 
-function isDraw(){
 
-}
     
 (function gameControler()
 {
     var error;
     var count=9;
+    error = document.querySelector('.error')
+
     window.onclick = e => {
         if(count >0 && !playerwin)
         {
@@ -122,6 +121,7 @@ function isDraw(){
             if(box.textContent != "X" && box.textContent !="O" || box.textContent == "")
             {
                 
+                error.textContent = "";
                 fillBox();
                 winCalculator(player);
                 togglePlayer();
@@ -136,7 +136,7 @@ function isDraw(){
     
             else{
                 
-                error = document.querySelector('.error')
+                
                 error.textContent = "already filled box choose another box";
                 
             }

@@ -12,10 +12,9 @@
     width: 300px;
     text-align: center;
     padding-top: auto;
-    font-size: 90px;
+    font-size: 60px;
 }
 .box-element{
-    
     border: 1px solid black;
     height: 100px;
     width: 100px;
@@ -26,7 +25,20 @@
 .message{
     text-align: center;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left:50%;
     transform: translate(-50%,-50%);
+}
+
+.marked{
+    cursor: not-allowed;
+}
+
+.button{
+    text-align: center;
+    position: absolute;
+    top: 80%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
 }

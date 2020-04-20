@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="./player.js"></script>
+    <script src="./board.js"></script>
+    <script src="./gameControler.js"></script>
     <title>TicTacToe game</title>
 </head>
 <body>
@@ -57,8 +60,17 @@
         <button type="button" class="btn btn-success reset">Restart game</button>
     </div>
     
+    <script type="text/javascript">
+            const player1 = new Player('Player 1','X',[]);
+            const player2 = new Player('Player 2','O',[]);
+            const gameBoard = new Board(["","","","","","","","",""]);
+            const gcObj = new gameCrontroler('Tic tac toe',gameBoard, player1,player2);
+
+            gcObj.init();
+            gcObj.run();
+    </script>
     
  
-   <script src="./main.js"></script>
+   
 </body>
 </html>

@@ -77,13 +77,12 @@ class gameCrontroler{
            
            if(this.gameBoard.boxArray[win[0]] == this.currentPlayer.symbol && this.gameBoard.boxArray[win[1]] == this.currentPlayer.symbol)
            {    
-                this.fillBox(box,symbolIndex);
+                
                 
                 document.querySelector('#p-' + (win[0]+1)).style.color="orange";
                 document.querySelector('#p-' + (win[1]+1)).style.color="orange";
                 document.querySelector('#p-' + ((symbolIndex)+1)).style.color="orange";
-                this.toggleStatus=false;
-                this.playingStatus = false;
+                
                return true;
            }
        }
@@ -120,9 +119,9 @@ class gameCrontroler{
         
         if(this.gameBoard.isBoxEmpty(box) && this.playingStatus)
         {
-            
             box.textContent = this.currentPlayer.symbol;
             this.gameBoard.boxArray[symbolIndex] = box.textContent = this.currentPlayer.symbol;
+            
             box.classList.add ("marked");
             this.toggleStatus = true;
         }
@@ -133,7 +132,6 @@ class gameCrontroler{
     }
 
     run(){
-        
             document.querySelector('.outer-box').addEventListener('click', (e) => {
                 
                 var box = document.querySelector('#' + e.target.id);
@@ -144,30 +142,35 @@ class gameCrontroler{
                     if(this.count>5 || !this.advanceLogicWinClaculactor(box,symbolIndex)){
                         this.fillBox(box,symbolIndex);
                         this.count--;
+                        //console.log(this.count);
+                        
                     }
+                    
+                    console.log("count :"+ this.count);
+                    console.log("win :"+ this.advanceLogicWinClaculactor(box,symbolIndex));
     
                     if(this.count<=4 && this.advanceLogicWinClaculactor(box,symbolIndex)){
-       
+                        this.fillBox(box,symbolIndex);   
                         this.messageDisplay(this.currentPlayer.name + " wins ", 'green');
+                        this.toggleStatus=false;
+                        this.playingStatus = false;
                                
                     }
-    
+
                     else if(this.count == 0){
-    
-                        this.messageDisplay("DRAW", 'red');
+
+                        this.messageDisplay("DRAW",'red');
                         this.playingStatus=false;
+                        this.toggleStatus=false;
                     }
-                    
-                    
+    
                     if(this.toggleStatus)
                     {
                         this.togglePlayer();
                     }
                 }
                 
-                else{
-                    console.log("else");
-                }
+              
                 
             })
 

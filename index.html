@@ -61,9 +61,11 @@
     </div>
     
     <script type="text/javascript">
-            const player1 = new Player('Player 1','X',[]);
-            const player2 = new Player('Player 2','O',[]);
+            const player1 = new Player('Player 1','X');
+            const player2 = new Player('Player 2','O');
             const gameBoard = new Board(["","","","","","","","",""]);
+           
+                
             const gcObj = new gameCrontroler('Tic tac toe',gameBoard, player1,player2);
 
             gcObj.init();

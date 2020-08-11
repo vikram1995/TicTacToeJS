@@ -2,6 +2,7 @@ class Board{
 
     constructor(boxArray){
         this.boxArray = boxArray;
+        
     }
 
     isBoxEmpty(box){
